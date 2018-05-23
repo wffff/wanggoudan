@@ -1,0 +1,19 @@
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/static/css/layui.css"  media="all"></link>
+</head>
+<script th:src="@{static/layui.js}"></script>
+<script th:src="@{/static/js/1.js}"></script>
+<BODY id="bodyy" onLoad="close()">
+<div style="text-align:center;margin-top:100px">
+    <br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/>
+    <h1 style="font-size:50px;color:red">情人节快乐</h1>
+    <h3 id="result" style="color:red;font-size:60px"></h3>
+    <input TYPE="button" VALUE="开始" id="btnBegin" ONCLICK="begin();"></input>&nbsp;
+    <input TYPE="button" VALUE="结束" id="btnEnd" ONCLICK="end();"></input>
+    <h2 id="jieguo" style="color:blue;font-size:48px"></h2>
+</div>
+</BODY>
+</html>
