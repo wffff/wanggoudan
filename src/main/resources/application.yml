@@ -10,6 +10,11 @@ spring:
     mode: HTML5
     encoding: UTF-8
     cache: false
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
 server:
   port: 9999
   tomcat:
