@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://118.25.193.38:443/postgres
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  mvc:
+    static-path-pattern: /static/**
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    generate-ddl: false
+    # fix SQLFeatureNotSupportedException in LobCreatorBuilderImpl
+    properties.hibernate.jdbc.lob.non_contextual_creation: true
+    # fix Hibernate Slow to Acquire Postgres Connection
+    properties.hibernate.temp.use_jdbc_metadata_defaults: false
+    properties.hibernate.jdbc.use_get_generated_keys: true
+    show-sql: false
+    hibernate.ddl-auto: none
+    open-in-view: true
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+server:
+  port: 9999
+  tomcat:
+    uri-encoding: UTF-8
