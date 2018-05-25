@@ -42,6 +42,8 @@ project(':libs') {
                 "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}",
                 "org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
                 "org.springframework.boot:spring-boot-starter-web-services:${springBootVersion}",
+                "org.jsoup:jsoup:${jsoupVersion}",
+                "com.alibaba:fastjson:${alibabaFastJsonVersion}",
 
                 "org.postgresql:postgresql:${postgresqlVersion}",
         )
