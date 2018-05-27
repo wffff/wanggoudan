@@ -33,12 +33,12 @@ public class QQAuthenticationFilter extends AbstractAuthenticationProcessingFilt
     /**
      * client_id 由腾讯提供
      */
-    static final String clientId = "101386962";
+    static final String clientId = "101475281";
 
     /**
      * client_secret 由腾讯提供
      */
-    private final static String clientSecret = "2a0f820407df400b84a854d054be8b6a";
+    private final static String clientSecret = "9c4934c697943ef015165dcb80e0ac6e";
 
     /**
      * redirect_uri 腾讯回调地址
