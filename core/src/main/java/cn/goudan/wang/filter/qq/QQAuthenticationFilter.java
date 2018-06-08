@@ -33,17 +33,17 @@ public class QQAuthenticationFilter extends AbstractAuthenticationProcessingFilt
     /**
      * client_id 由腾讯提供
      */
-    static final String clientId = "101475281";
+    static final String clientId = "101483590";
 
     /**
      * client_secret 由腾讯提供
      */
-    private final static String clientSecret = "9c4934c697943ef015165dcb80e0ac6e";
+    private final static String clientSecret = "ae452053296b5912e93a474354575362";
 
     /**
      * redirect_uri 腾讯回调地址
      */
-    private final static String redirectUri = "http://localhost:9999/login/qq";
+    private final static String redirectUri = "http://www.wanggoudan.cn/qq/return_url";
 
     /**
      * 获取 OpenID 的 API 地址
