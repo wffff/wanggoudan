@@ -37,6 +37,13 @@ project(':libs') {
     apply plugin: 'war'
     dependencies {
         compile(
+                /*  javaEE 依赖   */
+                "javax.mail:mail:${javaxMailVersion}",
+                "javax.xml.bind:jaxb-api:${javaXmlBindVersion}", //#解决因java9模块化产生的找不到类的异常
+                "com.sun.xml.bind:jaxb-core:${javaXmlBindVersion}", //#解决因java9模块化产生的找不到类的异常
+                "com.sun.xml.bind:jaxb-impl:${javaXmlBindVersion}", //#解决因java9模块化产生的找不到类的异常
+
+
                 "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}",
                 "org.springframework.boot:spring-boot-starter-security:${springBootVersion}",
                 "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}",
