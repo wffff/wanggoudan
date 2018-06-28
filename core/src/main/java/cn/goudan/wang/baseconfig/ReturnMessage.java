@@ -1,5 +1,7 @@
 package cn.goudan.wang.baseconfig;
 
+import cn.goudan.wang.baseconfig.constant.SystemConstants;
+
 import java.io.Serializable;
 
 /**

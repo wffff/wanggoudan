@@ -1,0 +1,57 @@
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header"></div>
+<div th:replace="menu"></div>
+<div class="container clear" ng-controller="MainController">
+    <div th:replace="admin/side"></div>
+    <div class="admin-container">
+        <div class="caption clear">
+            <span class="title">用户管理</span>
+            <span class="tools"><a th:href="@{/admin/userAdd}" class="button button-yellow">增加会员</a></span>
+        </div>
+        <div class="filter">
+            <div class="row"><span>序号</span> <input type="text" id="fid" size="4" value=""/> <input type="button" id="find" class="find" value="搜索"/></div>
+        </div>
+        <table class="table-list">
+            <tr>
+                <th class="col-unique">序号</th>
+                <th class="col-user">用户</th>
+                <th >名称</th>
+                <th class="col-mobile">手机</th>
+                <th class="col-email">邮箱</th>
+                <th class="col-bool">使用</th>
+                <th class="col-bool">过期</th>
+                <th class="col-bool">锁定</th>
+                <th class="col-bool">限制</th>
+                <th class="col-time">注册时间</th>
+                <th class="col-operator">操作</th>
+            </tr>
+            <tbody id="items">
+            <tr ng-repeat="user in users">
+                <td >{{user.id}}</td>
+                <td class="ellipsis">{{user.username}}</td>
+                <td >{{user.name}}</td>
+                <td class="ellipsis">{{user.mobile}}</td>
+                <td class="ellipsis">{{user.email}}</td>
+                <td >{{user.enabled}}</td>
+                <td >{{user.expired}}</td>
+                <td >{{user.locked}}</td>
+                <td >{{user.limited}}</td>
+                <td >{{user.time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td ><a th:href="@{/admin/userEdit/{{user.id}}}">编辑</a> <a href="javascript:;">删除</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var app = angular.module('app', []);
+    app.controller('MainController', function ($scope, $http) {
+        $http.get('/admin/getUserList').then(function (result) {
+            $scope.users = result.data;
+        });
+    });
+    /*]]>*/
+</script>
+<div th:replace="footer"></div>

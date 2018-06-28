@@ -1,0 +1,13 @@
+<!--suppress ALL -->
+<div th:replace="header"></div>
+<div class="oauth-login-area">
+    <div class="container oauth-login-container">
+        <div class="oauth-login-box">
+            <div class="oauth-login-head">认证授权错误</div>
+            <div class="login-error">
+                <div class="login-error-info" th:text="${message} + '(' + ${error.summary} + ')'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="footer"></div>

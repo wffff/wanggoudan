@@ -1,0 +1,21 @@
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header"></div>
+<div class="oauth-login-area">
+    <div class="container oauth-login-container">
+        <div class="oauth-login-box">
+            <div class="oauth-login-head">账号授权登录</div>
+            <div class="oauth-login-body">
+                <form method="POST" th:action="@{/oauth/login}">
+                    <div class="login-error">
+                        <div class="login-error-info" th:if="${param.error} and !${#strings.isEmpty(session.SPRING_SECURITY_LAST_EXCEPTION)}" th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}"></div>
+                    </div>
+                    <input type="text" id="username" name="username" placeholder="用户账号"/>
+                    <input type="password" id="password" name="password" placeholder="登录密码"/>
+                    <input type="submit" id="submit" value="登录"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="footer"></div>

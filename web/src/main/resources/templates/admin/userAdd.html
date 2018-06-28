@@ -1,0 +1,36 @@
+<div th:replace="header" xmlns="http://java.sun.com/jsf/html"></div>
+<div th:replace="menu"></div>
+<div class="container clear">
+    <div th:replace="admin/side"></div>
+    <div class="admin-container">
+        <form action="#"  th:method="post" th:object="${user}"  th:action="@{/admin/addUser}">
+            <table>
+                <tr>
+                    <td>用户名</td><td><input id="user1" th:field="*{username}"></td>
+                    <td>密码</td><td><input type="password" id="pass1" th:field="*{password}"></td>
+                    <td>再次确认密码</td><td><input type="password" id="pass2"></td>
+                </tr>
+                <td><input type="submit" onclick="return check()" value="提交" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script th:inline="javascript">
+    function check() {
+        if($('#user1').val().replace(/(^s*)|(s*$)/g, "").length ==0){
+            alert("用户名不许为空！");
+            return false;
+        }
+        if($('#pass1').val().replace(/(^s*)|(s*$)/g, "").length ==0){
+            alert("密码不许为空！");
+            return false;
+        }
+        if($('#pass2').val()!=$('#pass1').val()){
+            alert("确认密码与密码不一致");
+            return false;
+        }
+        return true;
+    }
+</script>
+<div th:replace="footer"></div>

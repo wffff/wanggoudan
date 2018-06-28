@@ -1,0 +1,25 @@
+<div th:replace="header"></div>
+<div class="register-area">
+    <div class="container register-container">
+        <div class="register-box">
+            <div class="register-head">账户登录<a th:href="@{/login}" class="register-login"><span class="register-arrow"></span> 立即登录</a></div>
+            <div class="register-body">
+                <form method="POST" th:action="@{/register}">
+                    <div class="field"><label for="username">用 户 名</label><input type="text" name="username" id="username" placeholder="您的账户名和登录名"/></div>
+                    <div class="register-error"></div>
+                    <div class="field"><label for="password">设置密码</label><input type="password" name="password" id="password" placeholder="建议至少使用两种字符组合"/></div>
+                    <div class="register-error"></div>
+                    <div class="field"><label for="repeat">确认密码</label><input type="password" name="repeat" id="repeat" placeholder="请再次输入密码"/></div>
+                    <div class="register-error"></div>
+                    <div class="field"><label for="mobile">手机号码</label><input type="text" name="mobile" id="mobile" placeholder="请使用常用手机"/></div>
+                    <div class="register-error"></div>
+                    <div class="field"><label for="validity">手机验证码</label><input type="text" name="validity" id="validity" placeholder="请输入手机验证码"/><a href="javascript:;" id="send">获取验证码</a></div>
+                    <div class="register-error"></div>
+                    <div class="register-license"><input type="checkbox" id="license" name="license" checked/> 阅读并同意<a href="javascript:;">《用户注册协议》</a></div>
+                    <input type="submit" id="submit" value="立即注册"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="footer"></div>

@@ -1,0 +1,22 @@
+<div th:replace="header"></div>
+<div class="oauth-login-area">
+    <div class="container oauth-login-container">
+        <div class="oauth-login-box" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+            <div class="login-error">
+                <div class="login-error-info" th:if="${param.error} and !${#strings.isEmpty(session.SPRING_SECURITY_LAST_EXCEPTION)}" th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}"></div>
+            </div>
+            <div class="oauth-login-head">应用授权确认</div>
+            <div class="oauth-login-site"><a th:href="@{${oauth_client.url}}" th:text="${oauth_client.site}" target="_blank"></a> 将获得以下权限：</div>
+            <div class="oauth-login-body">
+                <form method="POST" th:action="@{/oauth/authorize}">
+                    <input name="user_oauth_approval" value="true" type="hidden"/>
+                    <ul class="oauth-login-scope">
+                        <li th:each="scope:${scopes}"><input type="checkbox" th:name="${scope.key}" value="true" checked/> <span th:text="${scope.key}"></span></li>
+                    </ul>
+                    <input type="submit" id="submit" value="同意并授权"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="footer"></div>

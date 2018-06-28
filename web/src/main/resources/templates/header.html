@@ -1,35 +1,19 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!--suppress ThymeleafVariablesResolveInspection, ThymeleafMessagesResolveInspection -->
+<!DOCTYPE html>
+<html ng-app="app" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{bring.title}"></title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" th:href="@{https://static.gomro.cn/bring/favicon.ico}"/>
+    <link rel="stylesheet" th:href="@{https://static.gomro.cn/bring/passport/css/main.css}"/>
+    <script th:src="@{https://static.gomro.cn/libs/js/angular/1.6.3/angular.min.js}"></script>
+    <script type="text/javascript" th:src="@{http://static.gomro.cn/js/jQuery/easyui-1.5.1/jquery.min.js}"></script>
+</head>
 <body>
-<div th:fragment="nav">
-    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin: 0; border: 0">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/" >首页</a>
-                    </li>
-                    <!--<li>-->
-                        <!--<a href="http://www.jianshu.com/u/7b7ec6f2db21" target="_blank">作者</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="http://spring4all.com" target="_blank">Spring4All社区</a>-->
-                    <!--</li>-->
-                </ul>
-                <div class="navbar-form navbar-right">
-                    <a class="btn btn-danger" th:href="@{/user}" th:if="${#httpServletRequest.remoteUser}">个人中心</a>
-                    <a class="btn btn-success" th:href="@{/login}" th:unless="${#httpServletRequest.remoteUser}">登录</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<div class="header">
+    <span class="logo"></span><span class="nav"><a th:href="@{/register}">注册</a>　┆　<a th:href="@{/login}">登录</a>　┆　<a th:href="@{http://www.wogebi.com}">首页</a></span>
 </div>
-</body>
-</html>
