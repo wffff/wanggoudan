@@ -1,0 +1,37 @@
+<div th:replace="header"></div>
+<div th:replace="menu"></div>
+<div class="container clear" ng-controller="MainController">
+    <div th:replace="admin/side"></div>
+    <div class="admin-container">
+        <div class="caption clear">
+            <span class="title">角色管理</span>
+        </div>
+        <table class="table-list">
+            <tr>
+                <th class="col-unique">序号</th>
+                <th class="col-name">名称</th>
+                <th >描述</th>
+                <th class="col-operator">操作</th>
+            </tr>
+            <tbody id="items">
+            <tr ng-repeat="role in roles">
+                <td >{{role.id}}</td>
+                <td class="text-left ellipsis">{{role.name}}</td>
+                <td class="text-left ellipsis">{{role.description}}</td>
+                <td ><a th:href="@{/admin/roleEdit/{{role.id}}}">编辑</a> <a href="javascript:;">删除</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var app = angular.module('app', []);
+    app.controller('MainController', function ($scope, $http) {
+        $http.get('/admin/getRoleList').then(function (result) {
+            $scope.roles = result.data;
+        });
+    });
+    /*]]>*/
+</script>
+<div th:replace="footer"></div>

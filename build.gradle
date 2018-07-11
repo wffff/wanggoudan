@@ -79,3 +79,12 @@ project(':web') {
         testCompile project(':libs')
     }
 }
+
+project(':passport') {
+    apply plugin: 'war'
+    apply plugin: 'org.springframework.boot'
+    dependencies {
+        compileClasspath project(':libs')
+        testCompile project(':libs')
+    }
+}

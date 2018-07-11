@@ -1,0 +1,24 @@
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+<div class="menu-area" th:if="${#authorization?.expression('hasRole(''ROLE_ADMIN'')')}
+or ${#authorization?.expression('hasRole(''ROLE_USER'')')}">
+    <div class="container menu">
+        <ul>
+            <li th:if="${#authorization?.expression('hasRole(''ROLE_USER'')')}"><a href="#">会员中心</a></li>
+            <li th:if="${#authorization?.expression('hasRole(''ROLE_USER'')')}"><a href="#">我的应用</a></li>
+            <li th:if="${#authorization?.expression('hasRole(''ROLE_USER'')')}"><a href="#">我的连接</a></li>
+            <li th:if="${#authorization?.expression('hasRole(''ROLE_ADMIN'')')}"><a th:href="@{/admin/home}">管理中心</a></li>
+        </ul>
+        <div class="right">
+            <form th:action="@{/logout}" role="form" method="post"><input type="submit" class="btn btn-primary" value="退出"/></form>
+        </div>
+    </div>
+</div>
+
+<!--<div th:text="${#authorization}">obj</div>-->
+<!--<div sec:authentication="name">-->
+    <!--name-->
+<!--</div>-->
+<!--<div sec:authorize="hasRole('ROLE_ADMIN')">-->
+    <!--has role ROLE_ADMIN.-->
+<!--</div>-->

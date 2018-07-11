@@ -1,0 +1,131 @@
+<div th:replace="header" xmlns="http://java.sun.com/jsf/html"></div>
+<div th:replace="menu"></div>
+<div class="container clear">
+    <div th:replace="admin/side"></div>
+    <div class="admin-container">
+        <form action="#"  th:method="post" th:object="${client}"  th:action="@{/admin/clientEdit}">
+    <table>
+        <tr>
+            <td>客户</td><td><input readonly="true" th:field="*{clientId}"></td>
+            <td>类型</td><td><select id="typeId" th:field="*{type}">
+                 <option th:value="1" th:text="网页端"></option>
+                 <option th:value="2" th:text="移动端"></option>
+            </select>
+            </td>
+            <td>应用名称</td><td><input th:field="*{site}"></td>
+        </tr>
+        <tr>
+            <td>应用地址</td><td><input th:field="*{url}"></td>
+            <!--<td>用户</td><td><input th:field="*{uid}"></td>-->
+            <td>用户</td><td>
+            <select id="userId" th:field="*{uid}">
+                <option th:each="user:${users}" th:value="${user.id}" th:text="${user.username}"></option>
+            </select>
+        </td>
+            <td>资源服务器</td><td><input th:field="*{resourceIds}" readonly="true"></td>
+        </tr>
+        <tr>
+            <!--<td>授权模式</td><td><input th:field="*{authorizedGrantTypes}"></td>-->
+            <td>授权模式</td><td>
+            <input th:field="*{authorizedGrantTypes}" type="checkbox" th:text="authorization_code" name="authorized" value="authorization_code"/>
+        </td><td>
+            <input th:field="*{authorizedGrantTypes}" type="checkbox" th:text="implicit" name="authorized" value="implicit"/>
+        </td><td>
+            <input th:field="*{authorizedGrantTypes}" type="checkbox" th:text="password" name="authorized" value="password"/>
+        </td><td>
+            <input th:field="*{authorizedGrantTypes}" type="checkbox" th:text="client_credentials" name="authorized" value="client_credentials"/>
+        </td><td>
+            <input th:field="*{authorizedGrantTypes}" type="checkbox" th:text="refresh_token" name="authorized" value="refresh_token"/>
+        </td>
+        </tr>
+        <tr>
+            <!--<td>授权范围</td><td><input th:field="*{scope}"></td>-->
+            <td>授权范围</td>
+            <td>
+                <input type="hidden" name="scopeValue" id="scopeValue" th:field="*{scope}">
+                <span th:if="${#sets.contains(client.scope,'read')}">
+                <input type="checkbox" name="scope" value="read" checked="true" th:text="read" />
+                </span>
+                <span th:unless="${#sets.contains(client.scope,'read')}">
+                <input type="checkbox" name="scope" value="read" th:text="read" />
+                </span>
+                <span th:if="${#sets.contains(client.scope,'write')}">
+                <input type="checkbox" name="scope" value="write" checked="true" th:text="write" />
+                </span>
+                <span th:unless="${#sets.contains(client.scope,'write')}">
+                <input type="checkbox" name="scope" value="write" th:text="write" />
+                </span>
+                <span th:if="${#sets.contains(client.scope,'trust')}">
+                <input type="checkbox" name="scope" value="trust" checked="true" th:text="trust"/>
+                </span>
+                <span th:unless="${#sets.contains(client.scope,'trust')}">
+                <input type="checkbox" name="scope" value="trust" th:text="trust" />
+                </span>
+            </td>
+            <!--<td>自动审批</td><td><input th:field="*{autoApproveScopes}"></td>-->
+            <td>自动审批</td>
+            <td>
+                <input type="hidden" name="autoApproveValue" id="autoApproveValue" th:field="*{autoApproveScopes}">
+                <span th:if="${#sets.contains(client.autoApproveScopes,'read')}">
+                <input type="checkbox" name="autoApprove" value="read" checked="true" th:text="read" />
+                </span>
+                <span th:unless="${#sets.contains(client.autoApproveScopes,'read')}">
+                <input type="checkbox" name="autoApprove" value="read" th:text="read" />
+                </span>
+                <span th:if="${#sets.contains(client.autoApproveScopes,'write')}">
+                <input type="checkbox" name="autoApprove" value="write" checked="true" th:text="write" />
+                </span>
+                <span th:unless="${#sets.contains(client.autoApproveScopes,'write')}">
+                <input type="checkbox" name="autoApprove" value="write" th:text="write" />
+                </span>
+                <span th:if="${#sets.contains(client.autoApproveScopes,'trust')}">
+                <input type="checkbox" name="autoApprove" value="trust" checked="true" th:text="trust"/>
+                </span>
+                <span th:unless="${#sets.contains(client.autoApproveScopes,'trust')}">
+                <input type="checkbox" name="autoApprove" value="trust" th:text="trust" />
+                </span>
+            </td>
+            <td>客户密码</td><td><input readonly="true" id="clientsecret" th:field="*{clientSecret}"></td>
+        </tr>
+        <tr>
+            <td>重定向</td><td><input th:field="*{RegisteredRedirectUri}"></td>
+            <td>使用</td>
+            <td>
+            <input th:field="*{enabled}" type="radio" th:text="使用" name="enable" value="true"/>
+            <input th:field="*{enabled}" type="radio" th:text="禁用" name="enable" value="false"/>
+            </td>
+            <td><input type="submit" onclick="update()" value="提交" /></td>
+        </tr>
+    </table>
+        </form>
+    </div>
+</div>
+<script th:inline="javascript">
+    function update() {
+        var scopeStr="";
+        $("input[name='scope']").each(function(){
+            if($(this).is(":checked")){
+                scopeStr+=$(this).val()+",";
+            }
+        });
+        if(scopeStr!=""){
+            scopeStr=scopeStr.substr(0,scopeStr.length-1);
+            $('#scopeValue').val(scopeStr);
+        }else{
+            $('#scopeValue').val(scopeStr);
+        }
+        var autoStr="";
+        $("input[name='autoApprove']").each(function(){
+            if($(this).is(":checked")){
+                autoStr+=$(this).val()+",";
+            }
+        });
+        if(autoStr!=""){
+            autoStr=autoStr.substr(0,autoStr.length-1);
+            $('#autoApproveValue').val(autoStr);
+        }else{
+            $('#autoApproveValue').val(autoStr);
+        }
+    }
+</script>
+<div th:replace="footer"></div>

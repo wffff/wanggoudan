@@ -1,0 +1,141 @@
+*{ margin:0; padding:0; }
+body{ background:#fff; margin:0px; }
+input, select{ vertical-align:middle; }
+img{ border:0; }
+table{ border-collapse:collapse; width:100%; }
+ul{ list-style:none; }
+a{ text-decoration:none; }
+.hidden{ display:none; }
+.clear{ z-index:1; *zoom:1; }
+.clear:before, .clear:after{ display:table; line-height:0; content:''; }
+.clear:after{ clear:both; }
+.left{ float:left; }
+.right{ float:right; }
+/* header */
+.header{ margin:0 auto; border:0; padding:0; width:1180px; height:90px; font-size:12px; }
+.logo{ display:inline-block; width:250px; height:90px; background:url("https://static.gomro.cn/bring/passport/images/logo.jpg"); }
+.nav{ float:right; margin-right:10px; margin-top:35px; }
+.nav a{ color:#007dbc; text-decoration:none; }
+/* footer */
+.footer{ font-size:12px; line-height:80px; text-align:center; }
+/* container */
+.container{ margin:0 auto; border:0; padding:0; width:1180px; }
+/* menu */
+.menu-area{ background:#222; height:40px; line-height:40px; }
+.menu{ font-size:14px; }
+.menu li{ float:left; }
+.menu li a{ display:inline-block; height:40px; line-height:40px; padding-left:15px; padding-right:15px; color:#9d9d9d; text-decoration:none; }
+.menu li a:hover{ color:#fff; background:#111; }
+/* login */
+.login-area{ height:500px; background:#0a5b9d; }
+.login-container{ height:500px; padding-top:45px; background:url("https://static.gomro.cn/bring/passport/images/login.jpg") no-repeat; }
+.login-box{ height:400px; width:350px; margin-left:770px; font-size:12px; }
+.login-head{ height:54px; line-height:54px; padding-left:15px; border-bottom:#eee solid 1px; background:#fff; border-radius:10px 10px 0 0; font-size:16px; }
+.login-qr{ float:right; display:inline-block; height:46px; width:46px; margin-top:4px; margin-right:4px; background:url("https://static.gomro.cn/bring/passport/images/login-qr.png"); }
+.login-body{ height:280px; background:#fff; padding:10px 25px; }
+.login-error{ height:20px; line-height:20px; }
+.login-error-info{ height:20px; line-height:20px; padding:0 10px; color:#9d4a46; background:#efdfde; border:#e6cdcd solid 1px; border-radius:3px; }
+.login-body #username{ margin-top:10px; width:238px; height:40px; border:#ddd solid 1px; padding-left:50px; padding-right:10px; font-size:14px; background:url("https://static.gomro.cn/bring/passport/images/login-username.png") no-repeat; }
+.login-body #password{ margin-top:20px; width:238px; height:40px; border:#ddd solid 1px; padding-left:50px; padding-right:10px; font-size:14px; background:url("https://static.gomro.cn/bring/passport/images/login-password.png") no-repeat; }
+.login-body #submit{ width:300px; height:50px; border:0; margin-top:30px; background:#fd4c5b; color:#fff; letter-spacing:10px; font-size:14px; border-radius:5px; }
+.login-forget{ margin-top:25px; text-align:right; }
+.login-forget a{ text-decoration:none; color:#333; }
+.login-body :-ms-input-placeholder{ color:#ddd; }
+.login-body ::-moz-placeholder{ color:#ddd; }
+.login-body ::-webkit-input-placeholder{ color:#ddd; }
+.login-foot{ height:54px; line-height:54px; border-top:#eee solid 1px; background:#f0f4f5; border-radius:0 0 10px 10px; }
+.login-foot a{ display:inline-block; margin-left:15px; text-decoration:none; color:#333; }
+.login-qq{ display:inline-block; height:24px; width:24px; vertical-align:middle; background:url("https://static.gomro.cn/bring/passport/images/login-qq.png"); }
+.login-wx{ display:inline-block; height:24px; width:24px; vertical-align:middle; background:url("https://static.gomro.cn/bring/passport/images/login-wx.png"); }
+.login-wb{ display:inline-block; height:24px; width:24px; vertical-align:middle; background:url("https://static.gomro.cn/bring/passport/images/login-wb.png"); }
+/* register */
+.register-area{ height:660px; background:url("https://static.gomro.cn/bring/passport/images/register-bg.jpg") repeat-x; }
+.register-container{ height:660px; padding-top:45px; background:url("https://static.gomro.cn/bring/passport/images/register.jpg") no-repeat; }
+.register-box{ height:530px; width:400px; margin-left:50px; font-size:12px; }
+.register-head{ height:54px; line-height:54px; padding-left:15px; border-bottom:#eee solid 1px; background:#fff; border-radius:10px 10px 0 0; font-size:16px; }
+.register-login{ float:right; display:inline-block; margin-right:10px; color:#fd4c5b; text-decoration:none; font-size:12px; }
+.register-arrow{ display:inline-block; height:18px; width:18px; vertical-align:middle; background:url("https://static.gomro.cn/bring/passport/images/register-arrow.png"); }
+.register-body{ height:445px; background:#fff; padding:30px; border-radius:0 0 10px 10px; }
+.register-error{ height:30px; line-height:30px; }
+.register-body .field{ width:348px; height:42px; line-height:42px; border:#ddd solid 1px; }
+.register-body label{ display:inline-block; width:100px; height:40px; line-height:40px; text-align:center; }
+.register-body #username, .register-body #password, .register-body #repeat, .register-body #mobile{ border:0; padding:0; margin:0; font-size:14px; width:245px; height:40px; outline:none; }
+.register-body #validity{ border:0; padding:0; margin:0; font-size:14px; width:155px; height:40px; outline:none; }
+.register-body #send{ display:inline-block; border:0; width:93px; height:42px; background:#f0ad4e; color:#fff; text-align:center; text-decoration:none; }
+.register-license{ }
+.register-license a{ color:#007dbc; text-decoration:none; }
+.register-body #submit{ width:350px; height:50px; border:0; margin-top:20px; background:#fd4c5b; color:#fff; letter-spacing:10px; font-size:14px; border-radius:5px; }
+.register-body :-ms-input-placeholder{ color:#ddd; }
+.register-body ::-moz-placeholder{ color:#ddd; }
+.register-body ::-webkit-input-placeholder{ color:#ddd; }
+/* forget */
+.forget-area{ background:#eee; border-top:#ddd solid 1px; border-bottom:#ddd solid 1px; }
+.forget-container{ min-height:400px; background:#fff; }
+.forget-caption{ padding:20px; font-size:14px; border-bottom:#ddd dotted 1px; }
+/* oauth login */
+.oauth-login-area{ border-top:#ddd solid 1px; border-bottom:#ddd solid 1px; }
+.oauth-login-container{ height:500px; padding:30px; }
+.oauth-login-box{ height:300px; width:300px; margin-left:770px; font-size:12px; }
+.oauth-login-head{ height:54px; line-height:54px; border-bottom:#eee solid 1px; background:#fff; font-size:16px; }
+.oauth-login-site{ height:50px; line-height:50px; border-bottom:#eee dotted 1px; background:#fff; font-size:14px; }
+.oauth-login-body{ height:300px; background:#fff; padding:10px 0; }
+.oauth-login-error{ height:20px; line-height:20px; }
+.oauth-login-error-info{ height:20px; line-height:20px; padding:0 10px; color:#9d4a46; background:#efdfde; border:#e6cdcd solid 1px; border-radius:3px; }
+.oauth-login-body #username{ margin-top:10px; width:278px; height:40px; border:#ddd solid 1px; padding-left:10px; padding-right:10px; font-size:14px; }
+.oauth-login-body #password{ margin-top:20px; width:278px; height:40px; border:#ddd solid 1px; padding-left:10px; padding-right:10px; font-size:14px; }
+.oauth-login-body #submit{ width:300px; height:50px; border:0; margin-top:30px; background:#5cb85c; color:#fff; letter-spacing:10px; font-size:14px; border-radius:5px; }
+.oauth-login-scope{ font-size:12px; }
+.oauth-login-scope li{ padding:5px 0; }
+/* side */
+.side{ float:left; width:160px; border:#ddd solid 1px; background:#f8f8f8; font-size:12px; margin-top:10px; margin-bottom:10px; }
+.side ul{ padding:10px; }
+.side a{ display:block; padding:5px; color:#007dbc; text-decoration:none; }
+.side a:hover{ color:#c7181e; }
+.side hr{ border:0; border-top:#ddd solid 1px; margin-top:5px; margin-bottom:5px; }
+/* right public */
+.caption{ background-color:#666; border-radius:5px 5px 0 0; height:36px; line-height:36px; }
+.caption .title{ color:#fff; padding-left:20px; font-size:14px; }
+.caption .switch{ margin-left:20px; font-size:12px; }
+.caption .switch a{ padding:3px 8px; border:#999 solid 1px; border-right:0; color:#999; }
+.caption .switch a:first-child{ border-radius:4px 0 0 4px; }
+.caption .switch a:last-child{ border-right:#999 solid 1px; border-radius:0 4px 4px 0; }
+.caption .switch .act{ background:#eee; color:#333; }
+.caption .tools{ float:right; padding-right:5px; font-size:12px; }
+.caption .tools .link{ color:#f0f0f0; }
+.caption .tools .button{ padding:3px 5px; border-radius:3px; margin-left:10px; }
+.caption .tools .button-yellow{ border:#f0ad4e solid 1px; background:#f0ad4e; color:#fff; }
+.caption .tools .button-red{ border:#d9534f solid 1px; background:#d9534f; color:#fff; }
+.caption .tools .button-green{ border:#5bb75b solid 1px; background:#5bb75b; color:#fff; }
+.caption .tools .button-gray{ background:#f8f8f8; color:#333; }
+.filter{ padding:5px; padding-top:0; background:#d9edf7; font-size:12px; }
+.filter .row{ padding-top:5px; }
+.filter input[type='text']{ border:#ddd solid 1px; height:16px; padding:2px; text-align:center; }
+.filter .find{ padding:2px 8px; border-radius:3px; border:#007dbc solid 1px; background:#007dbc; color:#fff; font-size:12px; cursor:pointer; }
+/* table list */
+.table-list{ border:#ddd solid 1px; table-layout:fixed; width:1000px; font-size:12px; }
+.table-list th, .table-list tr, .table-list td{ border:#ddd solid 1px; }
+.table-list th{ padding:5px 2px; background:#f0f0f0; font-weight:normal; }
+.table-list tr:hover{ background:#fcf8e3; }
+.table-list td{ padding:3px; text-align:center; }
+.table-list input[type='text']{ border:#ddd solid 1px; height:16px; padding:2px; }
+.table-list .require{ color:#d9534f; }
+.table-list .ellipsis{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.table-list .text-left{ text-align:left; }
+.table-list .text-right{ text-align:right; }
+.table-list td a{ color:#007dbc; text-decoration:none; }
+/* col */
+.col-unique{ width:60px; }
+.col-site{ width:60px; }
+.col-user{ width:60px; }
+.col-name{ width:100px; }
+.col-time{ width:70px; }
+.col-resource{ width:70px; }
+.col-grant{ width:70px; }
+.col-scope{ width:70px; }
+.col-uri{ width:100px; }
+.col-mobile{ width:70px; }
+.col-email{ width:100px; }
+.col-bool{ width:25px; }
+.col-operator{ width:60px; }
+/* admin */
+.admin-container{ float:right; width:1000px; margin-top:10px; margin-bottom:10px; }

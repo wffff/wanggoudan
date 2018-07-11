@@ -1,0 +1,19 @@
+<!--suppress ThymeleafVariablesResolveInspection, ThymeleafMessagesResolveInspection -->
+<!DOCTYPE html>
+<html ng-app="app" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{bring.title}"></title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" th:href="@{https://static.gomro.cn/bring/favicon.ico}"/>
+    <link rel="stylesheet" th:href="@{https://static.gomro.cn/bring/passport/css/main.css}"/>
+    <script th:src="@{https://static.gomro.cn/libs/js/angular/1.6.3/angular.min.js}"></script>
+    <script type="text/javascript" th:src="@{http://static.gomro.cn/js/jQuery/easyui-1.5.1/jquery.min.js}"></script>
+</head>
+<body>
+<div class="header">
+    <span class="logo"></span><span class="nav"><a th:href="@{/register}">注册</a>　┆　<a th:href="@{/login}">登录</a>　┆　<a th:href="@{http://www.wogebi.com}">首页</a></span>
+</div>

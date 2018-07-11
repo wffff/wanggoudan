@@ -1,0 +1,21 @@
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header"></div>
+<div class="login-area">
+    <div class="container login-container">
+        <div class="login-box">
+            <div class="login-head">账户登录<span class="login-qr"></span></div>
+            <div class="login-body">
+                <form method="POST" th:action="@{/login}">
+                    <div class="login-error"><div class="login-error-info" th:if="${param.error} and !${#strings.isEmpty(session.SPRING_SECURITY_LAST_EXCEPTION)}" th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}"></div></div>
+                    <input type="text" id="username" name="username" placeholder="手机 / 用户名 / 邮箱"/>
+                    <input type="password" id="password" name="password" placeholder="密码"/>
+                    <input type="submit" id="submit" value="登录"/>
+                    <div class="login-forget"><a th:href="@{/forget}">忘记密码</a>　|　<a th:href="@{/register}">免费注册</a></div>
+                </form>
+            </div>
+            <div class="login-foot"><a href="javascript:;"><span class="login-qq"></span> QQ登录</a><a href="javascript:;"><span class="login-wx"></span> 微信登录</a><a href="javascript:;"><span class="login-wb"></span> 微博登录</a></div>
+        </div>
+    </div>
+</div>
+<div th:replace="footer"></div>

@@ -1,0 +1,47 @@
+<div th:replace="header" xmlns="http://java.sun.com/jsf/html"></div>
+<div th:replace="menu"></div>
+<div class="container clear">
+    <div th:replace="admin/side"></div>
+    <div class="admin-container">
+        <form action="#"  th:method="post" th:object="${user}"  th:action="@{/admin/editUser}">
+            <table>
+                <tr>
+                    <td>用户名</td><td><input readonly="true" id="user1" th:field="*{username}"></td>
+                    <input type="hidden" th:field="*{id}">
+                    <td>
+                        <input type="checkbox" id="roles" name="roles" th:value="1" th:text="管理员">
+                        <input type="checkbox" id="roles" name="roles" th:value="2" th:text="用户">
+                        <input type="checkbox" id="roles" name="roles" th:value="3" th:text="第三方接入用户">
+                        <input type="hidden" id="role" name="role">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p th:text="${hasRole}"></p>
+                    </td>
+                <td><input type="submit" onclick="return check()" value="修改权限" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script th:inline="javascript">
+    function check() {
+        var xx=$('#roleId').val();
+        $('#role').val(xx);
+        var roleStr="";
+        $("input[name='roles']").each(function(){
+            if($(this).is(":checked")){
+                roleStr+=$(this).val()+",";
+            }
+        });
+        if(roleStr!=""){
+            roleStr=roleStr.substr(0,roleStr.length-1);
+            $('#role').val(roleStr);
+        }else{
+            $('#role').val(roleStr);
+        }
+        return true;
+    }
+</script>
+<div th:replace="footer"></div>

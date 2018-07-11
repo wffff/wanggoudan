@@ -1,0 +1,95 @@
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header"></div>
+<div th:replace="menu"></div>
+<div class="container clear" ng-controller="MainController">
+    <div th:replace="admin/side"></div>
+    <div class="admin-container">
+        <div class="caption clear">
+            <span class="title">客户管理</span>
+            <!--<span class="tools"><a href="?m=RandomInquiry&a=InquiryCart" class="button button-yellow">增加会员</a></span>-->
+            <span class="tools"><a th:href="@{/admin/clientAdd}" class="button button-yellow">增加会员</a></span>
+        </div>
+        <div class="filter">
+            <div class="row"><span>序号</span> <input type="text" id="fid" size="4" value=""/> <input type="button" id="find" class="find" value="搜索"/></div>
+        </div>
+        <table class="table-list">
+            <tr>
+                <th class="col-unique">客户</th>
+                <th class="col-bool">类型</th>
+                <th class="col-site">应用名称</th>
+                <th class="col-user">用户</th>
+                <th class="col-resource">资源服务器</th>
+                <th class="col-grant">授权模式</th>
+                <th class="col-scope">授权范围</th>
+                <th >自动审批</th>
+                <th class="col-uri">重定向</th>
+                <th class="col-bool">使用</th>
+                <th class="col-time">最后申请</th>
+                <th class="col-time">注册时间</th>
+                <th class="col-operator">操作</th>
+            </tr>
+            <tbody id="items">
+            <tr th:each="client :${clients}">
+                <td class="ellipsis" th:text="${client.clientId}"></td>
+                <td  th:text="${client.type}"></td>
+                <td class="ellipsis"><a th:href="${client.url}" target="_blank"><span th:text="${client.site}"></span></a></td>
+                <td class="ellipsis"><a th:href="@{'/admin/user/'+${client.uid}}" target="_blank"><span th:text="${client.uid}"></span></a></td>
+                <td class="ellipsis"><span th:each="resource:${client.resourceIds}"><span th:text="${resource}"></span></span></td>
+                <td class="ellipsis"><span th:each="grant:${client.authorizedGrantTypes}"><span th:text="${grant}"></span></span></td>
+                <td class="ellipsis"><span th:each="scope:${client.scope}"><span th:text="${scope}"></span></span></td>
+                <td class="ellipsis"><span th:each="approve:${client.autoApproveScopes}"><span th:text="${approve}"></span></span></td>
+                <td class="ellipsis"><span th:each="uri:${client.RegisteredRedirectUri}"><span th:text="${uri}"></span></span></td>
+                <td  th:text="${client.enabled}"></td>
+                <td  th:text="${client.last}"></td>
+                <td  th:text="${client.time}"></td>
+                <td ><a th:href="@{'/admin/clientEdit/'+${client.clientId}}">编辑</a> <a onclick="return isDelete()" th:href="@{'/admin/clientDelete/'+${client.clientId}(page=${page},rows=${rows})}">删除</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <table style="font-family:KaiTi_GB2312;"><tr>
+            <td><select id="selectId" onchange="changeData(this.options[this.selectedIndex])">
+                <option>显示行数</option>
+                <option th:value="@{/admin/clientList(page=${page},rows=${1})}">1</option>
+                <option th:value="@{/admin/clientList(page=${page},rows=${2})}">2</option>
+                <option th:value="@{/admin/clientList(page=${page},rows=${3})}">3</option>
+                <option th:value="@{/admin/clientList(page=${page},rows=${4})}">4</option>
+                <option th:value="@{/admin/clientList(page=${page},rows=${5})}">5</option>
+            </select></td>
+  <td><a th:href="@{/admin/clientList(page=1,rows=${rows})}">首页</a></td>
+  <td th:switch="${page}">
+    <p th:case="1">
+      <a th:href="@{/admin/clientList(page=1,rows=${rows})}">上一页</a>
+    </p>
+    <p th:case="*">
+      <a th:href="@{/admin/clientList(page=${page-1},rows=${rows})}">上一页</a>
+    </p>
+  </td>
+  <td th:switch="${page}">
+    <p th:case="${count}">
+      <a th:href="@{/admin/clientList(page=${count},rows=${rows})}">下一页</a>
+    </p>
+    <p th:case="*">
+      <a th:href="@{/admin/clientList(page=${page+1},rows=${rows})}">下一页</a>
+    </p>
+  </td>
+  <td><a th:href="@{/admin/clientList(page=${count},rows=${rows})}">尾页</a></td>
+</tr></table>
+    </div>
+</div>
+<script th:inline="javascript">
+    function changeData(obj){
+        if(obj!=null){
+            window.location=obj.value;
+        }
+    }
+    function isDelete() {
+        if (confirm("你确定删除吗？")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+<div th:replace="footer"></div>
